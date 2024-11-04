@@ -1,11 +1,13 @@
 package com.stx.xhb.demo;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.telecom.Call;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import okhttp3.Call;
 
 /**
  * Use In RecyclerView
@@ -104,9 +105,11 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 .url(url)
                 .build()
                 .execute(new StringCallback() {
+
+
                     @Override
-                    public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(RecyclerViewActivity.this, "加载广告数据失败", Toast.LENGTH_SHORT).show();
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+
                     }
 
                     @Override

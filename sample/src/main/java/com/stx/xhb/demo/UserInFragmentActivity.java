@@ -1,9 +1,9 @@
 package com.stx.xhb.demo;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 

@@ -1,7 +1,9 @@
 package com.stx.xhb.demo.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
+
+import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +23,6 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Call;
 
 
 public class NumberIndicatorFragment extends Fragment {
@@ -85,9 +86,11 @@ public class NumberIndicatorFragment extends Fragment {
                 .url(url)
                 .build()
                 .execute(new StringCallback() {
+
+
                     @Override
-                    public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(getContext(), "加载广告数据失败", Toast.LENGTH_SHORT).show();
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+
                     }
 
                     @Override

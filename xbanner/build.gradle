@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 android {
@@ -13,5 +13,5 @@ android {
 }
 
 dependencies {
-    compileOnly 'com.android.support:support-v4:28+'
+    compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'
 }

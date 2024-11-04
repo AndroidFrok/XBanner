@@ -2,20 +2,20 @@ package com.stx.xhb.demo;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
+import com.stx.xhb.demo.entity.TuchongEntity;
 import com.stx.xhb.xbanner.XBanner;
 import com.stx.xhb.xbanner.entity.LocalImageInfo;
 import com.stx.xhb.xbanner.transformers.Transformer;
-import com.stx.xhb.demo.entity.TuchongEntity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
+
 
 /**
  * 一屏显示多个，类似魅族Banner模式
@@ -120,9 +121,10 @@ public class ClipChildrenModeActivity extends AppCompatActivity {
                 .url(url)
                 .build()
                 .execute(new StringCallback() {
+
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(ClipChildrenModeActivity.this, "加载广告数据失败", Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override

@@ -1,6 +1,6 @@
 package com.stx.xhb.xbanner.holder;
 
-import android.support.annotation.LayoutRes;
+import androidx.annotation.LayoutRes;
 import android.view.View;
 
 

@@ -2,8 +2,9 @@ package com.stx.xhb.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.telecom.Call;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,7 +14,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
@@ -25,7 +25,6 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Call;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -116,10 +115,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .url(url)
                 .build()
                 .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
 
-                        Toast.makeText(MainActivity.this, "加载广告数据失败", Toast.LENGTH_SHORT).show();
+
+                    @Override
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+
                     }
 
                     @Override

@@ -1,8 +1,10 @@
 package com.stx.xhb.demo;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.telecom.Call;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,7 +21,6 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.ArrayList;
 import java.util.List;
-import okhttp3.Call;
 
 /**
  * listview 添加headview使用 RecycleView上也是同样的
@@ -103,13 +104,15 @@ public class ListViewActivity extends AppCompatActivity {
         //加载网络图片资源
         String url = "https://api.tuchong.com/2/wall-paper/app";
         OkHttpUtils
-                .get()
+             .get()
                 .url(url)
                 .build()
                 .execute(new StringCallback() {
+
+
                     @Override
-                    public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(ListViewActivity.this, "加载广告数据失败", Toast.LENGTH_SHORT).show();
+                    public void onError(okhttp3.Call call, Exception e, int id) {
+
                     }
 
                     @Override
