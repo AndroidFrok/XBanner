@@ -1,7 +1,5 @@
-package com.stx.xhb.demo.entity;
+package com.stx.xhb.xbanner.entity;
 
-
-import com.stx.xhb.xbanner.entity.BaseBannerInfo;
 
 /**
  * author: xiaohaibin.
@@ -14,6 +12,18 @@ public class CustomViewsInfo implements BaseBannerInfo {
 
     private String info;
 
+    public CustomViewsInfo(String info, int type) {
+        this.info = info;
+        this.type = type;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    private int type = 1 ;//1图片  2视频
+
+    @Deprecated
     public CustomViewsInfo(String info) {
         this.info = info;
     }
@@ -25,7 +35,7 @@ public class CustomViewsInfo implements BaseBannerInfo {
 
     @Override
     public String getXBannerTitle() {
-        return null;
+        return "";
     }
 
 }

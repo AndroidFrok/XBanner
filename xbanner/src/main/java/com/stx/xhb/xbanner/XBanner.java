@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+
 import androidx.annotation.Dimension;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntDef;
@@ -15,6 +16,7 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -29,6 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.stx.xhb.xbanner.entity.BaseBannerInfo;
+import com.stx.xhb.xbanner.entity.CustomViewsInfo;
 import com.stx.xhb.xbanner.holder.HolderCreator;
 import com.stx.xhb.xbanner.holder.ViewHolder;
 import com.stx.xhb.xbanner.listener.OnDoubleClickListener;
@@ -140,14 +143,12 @@ public class XBanner extends RelativeLayout implements XBannerViewPager.AutoPlay
     /**
      * 正常状态下的指示点
      */
-    private @DrawableRes
-    int mPointNormal;
+    private @DrawableRes int mPointNormal;
 
     /**
      * 选中状态下的指示点
      */
-    private @DrawableRes
-    int mPointSelected;
+    private @DrawableRes int mPointSelected;
 
     /**
      * 指示容器背景
@@ -288,16 +289,7 @@ public class XBanner extends RelativeLayout implements XBannerViewPager.AutoPlay
 
     private ImageView.ScaleType mScaleType = ImageView.ScaleType.FIT_XY;
 
-    private static final ImageView.ScaleType[] sScaleTypeArray = {
-            ImageView.ScaleType.MATRIX,
-            ImageView.ScaleType.FIT_XY,
-            ImageView.ScaleType.FIT_START,
-            ImageView.ScaleType.FIT_CENTER,
-            ImageView.ScaleType.FIT_END,
-            ImageView.ScaleType.CENTER,
-            ImageView.ScaleType.CENTER_CROP,
-            ImageView.ScaleType.CENTER_INSIDE
-    };
+    private static final ImageView.ScaleType[] sScaleTypeArray = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
 
     /**
      * 请使用 {@link #loadImage} 替换
@@ -715,8 +707,7 @@ public class XBanner extends RelativeLayout implements XBannerViewPager.AutoPlay
     }
 
     @Override
-    public void onPageScrolled(int position, float positionOffset,
-                               int positionOffsetPixels) {
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         mPageScrollPosition = position;
         mPageScrollPositionOffset = positionOffset;
         if (mTipTv != null && mData != null && mData.size() != 0 && mData.get(0) instanceof BaseBannerInfo) {
@@ -1133,6 +1124,7 @@ public class XBanner extends RelativeLayout implements XBannerViewPager.AutoPlay
 
     /**
      * 是否显示提示文案
+     *
      * @param mIsShowTips
      */
     public void setIsShowTips(boolean mIsShowTips) {
@@ -1141,6 +1133,7 @@ public class XBanner extends RelativeLayout implements XBannerViewPager.AutoPlay
 
     /**
      * 低于三张图片是否展示一屏多显模式
+     *
      * @param mIsClipChildrenModeLessThree
      */
     public void setIsClipChildrenModeLessThree(boolean mIsClipChildrenModeLessThree) {
@@ -1266,7 +1259,14 @@ public class XBanner extends RelativeLayout implements XBannerViewPager.AutoPlay
 
     @SuppressWarnings("unchecked")
     private View getView(ViewGroup container, final int position) {
-        ViewHolder holder = holderCreator.createViewHolder(holderCreator.getViewType(position));
+        CustomViewsInfo item = (CustomViewsInfo) mData.get(position);
+        /*if (item.getType() == 2) {
+
+        } else {
+
+        }*/
+//        ViewHolder holder = holderCreator.createViewHolder(holderCreator.getViewType(position));
+        ViewHolder holder = holderCreator.createViewHolder(item.getType());
         if (holder == null) {
             throw new NullPointerException("Can not return a null holder");
         }
@@ -1283,13 +1283,12 @@ public class XBanner extends RelativeLayout implements XBannerViewPager.AutoPlay
     }
 
     private void setViewListener(View view, final int position) {
-        if (view != null)
-            view.setOnClickListener(new OnDoubleClickListener() {
-                @Override
-                public void onNoDoubleClick(View v) {
-                    if (null != mOnItemClickListener)
-                        mOnItemClickListener.onItemClick(XBanner.this, mData.get(position), v, position);
-                }
-            });
+        if (view != null) view.setOnClickListener(new OnDoubleClickListener() {
+            @Override
+            public void onNoDoubleClick(View v) {
+                if (null != mOnItemClickListener)
+                    mOnItemClickListener.onItemClick(XBanner.this, mData.get(position), v, position);
+            }
+        });
     }
 }

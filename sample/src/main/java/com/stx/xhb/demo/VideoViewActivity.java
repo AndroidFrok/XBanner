@@ -1,15 +1,17 @@
 package com.stx.xhb.demo;
 
 import android.os.Bundle;
+
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.stx.xhb.demo.entity.CustomViewsInfo;
 import com.stx.xhb.demo.holder.BannerHolderCreator;
 import com.stx.xhb.xbanner.XBanner;
+import com.stx.xhb.xbanner.entity.CustomViewsInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +34,10 @@ public class VideoViewActivity extends AppCompatActivity {
     private void initView() {
         XBanner banner = (XBanner) findViewById(R.id.banner);
         List<CustomViewsInfo> data = new ArrayList<>();
-        data.add(new CustomViewsInfo("https://photo.tuchong.com/250829/f/31548923.jpg"));
-        data.add(new CustomViewsInfo("https://photo.tuchong.com/46728/f/20138526.jpg"));
-        data.add(new CustomViewsInfo("https://photo.tuchong.com/392724/f/16858773.jpg"));
-        data.add(new CustomViewsInfo("https://photo.tuchong.com/408963/f/18401047.jpg"));
+        data.add(new CustomViewsInfo("https://hnwzgxsyy.test.jhwangluo.com/uploads/20241101/552e51842a5bee9147aec6eac836e70a.mp4", 2));
+        data.add(new CustomViewsInfo("https://hnwzgxsyy.test.jhwangluo.com/uploads/20241101/288656818cc71a7e866f0990a91a2090.jpg", 1));
+        data.add(new CustomViewsInfo("http://hnwzgxsyy.test.jhwangluo.com/uploads/20241101/288656818cc71a7e866f0990a91a2090.jpg", 1));
+        data.add(new CustomViewsInfo("http://hnwzgxsyy.test.jhwangluo.com/uploads/20241101/552e51842a5bee9147aec6eac836e70a.mp4", 2));
         final BannerHolderCreator holderCreator = new BannerHolderCreator();
         banner.setBannerData(data, holderCreator);
         banner.setOnItemClickListener(new XBanner.OnItemClickListener() {

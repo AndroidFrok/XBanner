@@ -3,7 +3,7 @@ package com.stx.xhb.demo.holder;
 import android.view.View;
 
 import com.stx.xhb.demo.R;
-import com.stx.xhb.demo.entity.CustomViewsInfo;
+import com.stx.xhb.xbanner.entity.CustomViewsInfo;
 import com.stx.xhb.xbanner.holder.ViewHolder;
 
 import xyz.doikki.videocontroller.StandardVideoController;
@@ -20,9 +20,9 @@ public class VideoViewHolder implements ViewHolder<CustomViewsInfo> {
     @Override
     public void onBind(View itemView, CustomViewsInfo data, int position) {
         videoView = itemView.findViewById(R.id.player);
-        videoView.setUrl("http://vfx.mtime.cn/Video/2019/03/18/mp4/190318231014076505.mp4");
+        videoView.setUrl(data.getXBannerUrl());
         StandardVideoController controller = new StandardVideoController(itemView.getContext());
-        controller.addDefaultControlComponent("标题", false);
+        controller.addDefaultControlComponent("标题"+data.getXBannerTitle(), false);
         videoView.setVideoController(controller); //设置控制器
     }
 }

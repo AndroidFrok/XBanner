@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.stx.xhb.xbanner.XBanner;
-import com.stx.xhb.demo.entity.CustomViewsInfo;
+import com.stx.xhb.xbanner.entity.CustomViewsInfo;
 
 import java.util.ArrayList;
 import java.util.List;

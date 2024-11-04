@@ -12,7 +12,7 @@ public class BannerHolderCreator implements HolderCreator<ViewHolder> {
 
     @Override
     public ViewHolder createViewHolder(int viewType) {
-        if (viewType==0){
+        if (viewType == 2) {
             return videoViewHolder;
         }
         return new ImageViewHolder();

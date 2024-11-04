@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.stx.xhb.demo.R;
-import com.stx.xhb.demo.entity.CustomViewsInfo;
+import com.stx.xhb.xbanner.entity.CustomViewsInfo;
 import com.stx.xhb.xbanner.holder.ViewHolder;
 
 public class ImageViewHolder implements ViewHolder<CustomViewsInfo> {
